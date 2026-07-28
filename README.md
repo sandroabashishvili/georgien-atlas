@@ -33,7 +33,8 @@ Frontend-Framework:
 ## Lokal ansehen
 
 ```bash
-cd ~/portfolio_projects/georgien-atlas
+git clone https://github.com/sandroabashishvili/georgien-atlas.git
+cd georgien-atlas
 python3 -m http.server 8095
 ```
 
@@ -80,3 +81,11 @@ verbindliche Reiseberatung.
 
 Veröffentlichungsfähige Version. Inhalte und Datengrundlagen können künftig
 schrittweise erweitert und aktualisiert werden.
+
+## Autor
+
+Aleksandre (Sandro) Abashishvili
+
+[Portfolio](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/) ·
+[GitHub](https://github.com/sandroabashishvili) ·
+[LinkedIn](https://www.linkedin.com/in/aleksandre-abashishvili-03417617a/)
