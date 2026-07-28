@@ -43,9 +43,8 @@ Danach im Browser öffnen:
 http://127.0.0.1:8095/
 ```
 
-Die Website funktioniert grundsätzlich auch direkt über `index.html`. Ein
-lokaler Server bildet das Verhalten der veröffentlichten Version jedoch
-zuverlässiger ab.
+Ein lokaler Server bildet das Verhalten der veröffentlichten Version
+zuverlässig ab und hält die sichtbaren URLs frei von Dateinamen.
 
 ## Projektstruktur
 
