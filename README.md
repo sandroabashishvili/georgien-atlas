@@ -16,6 +16,7 @@ Datenkarte.
 - FAQ für die erste Reiseplanung
 - kuratierte Links zu offiziellen und etablierten Quellen
 - responsives Layout sowie Tastatur- und Screenreader-freundliche Navigation
+- persistenter heller und dunkler Darstellungsmodus
 - SEO-Grundlagen mit Canonicals, Open Graph, strukturierten Daten, Sitemap und
   `robots.txt`
 
@@ -61,7 +62,7 @@ zuverlässig ab und hält die sichtbaren URLs frei von Dateinamen.
 └── assets/
     ├── css/             # modulare Stylesheets
     ├── img/             # lokale Bild- und Social-Media-Assets
-    ├── js/              # Navigation und Regionen-Interaktion
+    ├── js/              # gemeinsame Navigation, Theme und Regionen-Interaktion
     └── map/             # Folium/Leaflet-Export und Kartendaten
 ```
 

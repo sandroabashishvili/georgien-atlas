@@ -124,6 +124,32 @@ a[download] {
   border-radius: 8px !important;
   padding: 10px 14px !important;
 }
+.atlas-dark {
+  background: #0b171c;
+  color: #edf7f5;
+}
+.atlas-dark body > h3,
+.atlas-dark body > p {
+  background: linear-gradient(90deg, #061b24, #123a43);
+}
+.atlas-dark #statsTable,
+.atlas-dark .leaflet-control-layers-expanded,
+.atlas-dark .leaflet-popup-content-wrapper,
+.atlas-dark .leaflet-popup-tip {
+  background: rgba(19, 39, 46, .97) !important;
+  color: #edf7f5 !important;
+}
+.atlas-dark .table-row {
+  border-bottom-color: #315058;
+}
+.atlas-dark .table-row:hover {
+  background-color: #19343a !important;
+}
+.atlas-dark .foliumtooltip {
+  border-color: rgba(98, 204, 210, .42) !important;
+  background: rgba(19, 39, 46, .97) !important;
+  color: #edf7f5 !important;
+}
 .leaflet-control-minimap {
   display: none !important;
 }
@@ -3508,9 +3534,6 @@ function sortTable(columnIndex) {
             );
         
     
-            tile_layer_181d67c98f40f91d3beeb8d8ccdf5872.addTo(map_c321e12504a1f5624433d2cc03afcfe8);
-        
-    
             var tile_layer_3eab42c74ae7f5df212f432c804ca1f6 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
                 {
@@ -3658,6 +3681,31 @@ function sortTable(columnIndex) {
 }
             );
             map_c321e12504a1f5624433d2cc03afcfe8.addControl(mini_map_60752669d9d3c78c2c672c87079c0f35);
+
+            function applyAtlasTheme(theme) {
+                var darkMode = theme === "dark";
+                var baseLayers = [
+                    tile_layer_181d67c98f40f91d3beeb8d8ccdf5872,
+                    tile_layer_3eab42c74ae7f5df212f432c804ca1f6,
+                    tile_layer_acef30545a0a58af796411c564bf65eb,
+                    tile_layer_f64a68e3f0925b0485771d7c07c8ebc5,
+                    tile_layer_6b08b02eb886361d852db3f7fa108077
+                ];
+                baseLayers.forEach(function(layer) {
+                    if (map_c321e12504a1f5624433d2cc03afcfe8.hasLayer(layer)) {
+                        map_c321e12504a1f5624433d2cc03afcfe8.removeLayer(layer);
+                    }
+                });
+                (darkMode ? tile_layer_6b08b02eb886361d852db3f7fa108077 : tile_layer_3eab42c74ae7f5df212f432c804ca1f6)
+                    .addTo(map_c321e12504a1f5624433d2cc03afcfe8);
+                document.documentElement.classList.toggle("atlas-dark", darkMode);
+            }
+
+            window.addEventListener("message", function(event) {
+                var sameOrigin = window.location.origin === "null" || event.origin === window.location.origin;
+                if (!sameOrigin || event.data?.type !== "atlas-theme") return;
+                applyAtlasTheme(event.data.theme);
+            });
         
 </script>
 </html>

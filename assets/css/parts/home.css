@@ -383,6 +383,14 @@ h3 {
   background: linear-gradient(135deg, #ffffff, var(--paper-strong));
 }
 
+:root[data-theme="dark"] .wide-band.light {
+  background: linear-gradient(135deg, #13272e, #19343a);
+}
+
+:root[data-theme="dark"] .card.feature {
+  background: linear-gradient(135deg, var(--paper), var(--paper-strong));
+}
+
 .card p {
   margin: 12px 0 0;
   color: var(--muted);

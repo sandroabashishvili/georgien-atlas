@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #eef5f5;
   --paper: #ffffff;
   --paper-strong: #e3f0ef;
@@ -12,6 +13,21 @@
   --shadow: 0 18px 42px rgba(16, 46, 58, 0.13);
   --radius: 10px;
   --max: 1180px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b171c;
+  --paper: #13272e;
+  --paper-strong: #19343a;
+  --ink: #edf7f5;
+  --muted: #adc1c3;
+  --line: #315058;
+  --accent: #62ccd2;
+  --accent-2: #f0bb62;
+  --green: #6bcbae;
+  --deep: #061b24;
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -31,6 +47,12 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
+}
+
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(98, 204, 210, 0.1), transparent 34%),
+    linear-gradient(180deg, #0e1d22 0%, var(--bg) 42%, #0a1519 100%);
 }
 
 body.menu-open {
@@ -106,6 +128,11 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
+:root[data-theme="dark"] .site-header {
+  border-bottom-color: rgba(49, 80, 88, 0.92);
+  background: rgba(11, 23, 28, 0.94);
+}
+
 .header-inner,
 .main,
 .footer-inner {
@@ -154,6 +181,10 @@ a:hover {
   font-weight: 700;
 }
 
+:root[data-theme="dark"] .nav a {
+  color: #c8d9db;
+}
+
 .nav a[aria-current="page"] {
   color: var(--accent);
 }
@@ -180,6 +211,35 @@ a:hover {
   font-weight: 800;
   font-family: inherit;
   cursor: pointer;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(13, 107, 120, 0.16);
+  transform: translateY(-2px) rotate(8deg);
 }
 
 .footer-links {

@@ -94,6 +94,10 @@
     transform 180ms ease;
 }
 
+:root[data-theme="dark"] .region-chip {
+  background: rgba(19, 39, 46, .88);
+}
+
 .region-chip:hover,
 .region-chip.is-active {
   border-color: var(--accent);
