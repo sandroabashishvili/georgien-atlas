@@ -92,10 +92,18 @@
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 8px;
+    position: static;
+    scroll-snap-type: x proximity;
   }
 
   .region-chip {
     white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
+  .region-chip:hover,
+  .region-chip.is-active {
+    transform: translateY(-2px);
   }
 
   .text-link {
@@ -112,9 +120,18 @@
     grid-row: auto;
   }
 
+  .source-rows a {
+    min-height: 0;
+  }
+
   .region-story {
     gap: 22px;
     padding: 32px 0;
+  }
+
+  .region-image img {
+    max-height: 280px;
+    aspect-ratio: 16 / 9;
   }
 
   .grid,
@@ -202,5 +219,38 @@
 
   .region-panel h2 {
     font-size: 46px;
+  }
+
+  .region-explorer {
+    gap: 24px;
+  }
+
+  .region-panel {
+    gap: 22px;
+  }
+
+  .region-panel-image img,
+  .region-image img {
+    max-height: 220px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .region-summary {
+    margin: 14px 0 20px;
+    font-size: 18px;
+  }
+
+  .region-columns {
+    gap: 18px;
+  }
+
+  .map-frame,
+  .map-frame iframe {
+    min-height: 640px;
+    height: 76svh;
+  }
+
+  .source-rows a {
+    padding: 18px 50px 18px 18px;
   }
 }

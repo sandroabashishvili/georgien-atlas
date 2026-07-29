@@ -20,13 +20,37 @@
 }
 body {
   font-family: Arial, sans-serif;
-  background: #f4f8f8;
+  background: #eaf3f1;
+  color: #10202a;
+  overflow: hidden;
+}
+body > h3 {
+  margin: 0 !important;
+  padding: 11px 18px 2px;
+  background: linear-gradient(90deg, #0b2730, #0d6b78);
+  color: #fff !important;
+  text-align: left;
+}
+body > p {
+  margin: 0 !important;
+  padding: 0 18px 10px;
+  background: linear-gradient(90deg, #0b2730, #0d6b78);
+  color: rgba(255,255,255,.8) !important;
+  text-align: left;
+  font-size: 12px;
+}
+body > p a {
+  color: #f3bb63;
+}
+.folium-map {
+  height: calc(100% - 68px) !important;
 }
 #statsTable {
-  width: min(450px, calc(100vw - 40px)) !important;
-  left: 20px !important;
-  bottom: 72px !important;
+  width: min(430px, calc(100vw - 32px)) !important;
+  left: 16px !important;
+  bottom: 16px !important;
   border: 1px solid rgba(18, 59, 87, .22) !important;
+  border-radius: 12px !important;
   box-shadow: 0 12px 28px rgba(18, 59, 87, .18) !important;
 }
 .leaflet-control-layers,
@@ -38,6 +62,9 @@ body {
 }
 .leaflet-control-layers-expanded {
   background: rgba(255,255,255,.96) !important;
+  max-width: min(310px, calc(100vw - 78px));
+  max-height: min(70vh, 520px);
+  overflow: auto;
 }
 .region-label {
   transform: translate(-50%, -50%);
@@ -64,6 +91,13 @@ body {
 .leaflet-popup-content {
   font: 14px/1.45 Arial, sans-serif;
 }
+.foliumtooltip {
+  border: 1px solid rgba(13, 107, 120, .32) !important;
+  border-radius: 8px !important;
+  background: rgba(255,255,255,.96) !important;
+  color: #10202a !important;
+  box-shadow: 0 10px 24px rgba(11,39,48,.16) !important;
+}
 .leaflet-popup-content a {
   display: inline-block;
   margin-top: 8px;
@@ -71,8 +105,60 @@ body {
   font-weight: 700;
 }
 a[download] {
+  right: 16px !important;
+  bottom: 16px !important;
+  left: auto !important;
   background: #0d5c73 !important;
   border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+.leaflet-control-minimap {
+  display: none !important;
+}
+@media (max-width: 700px) {
+  body > h3 {
+    padding: 9px 12px 1px;
+    font-size: 15px !important;
+  }
+  body > p {
+    padding: 0 12px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .folium-map {
+    height: calc(100% - 55px) !important;
+  }
+  #statsTable {
+    width: calc(100vw - 24px) !important;
+    left: 12px !important;
+    bottom: 12px !important;
+  }
+  #statsBody > div:last-child {
+    max-height: 46svh !important;
+  }
+  .leaflet-control-layers-expanded {
+    max-width: calc(100vw - 72px);
+    max-height: 54svh;
+    font-size: 12px;
+  }
+  .leaflet-control-mouseposition,
+  a[download] {
+    display: none !important;
+  }
+  .region-label {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  .municipality-label {
+    display: none;
+  }
+  .leaflet-popup-content {
+    width: min(240px, calc(100vw - 92px)) !important;
+    margin: 12px !important;
+    font-size: 12px;
+  }
 }
 </style>
     
@@ -1231,6 +1317,12 @@ function sortTable(columnIndex) {
                 }
             );
             L.control.scale().addTo(map_c321e12504a1f5624433d2cc03afcfe8);
+            if (window.innerWidth <= 700) {
+                map_c321e12504a1f5624433d2cc03afcfe8.setView([42.05, 43.45], 6);
+            }
+            window.addEventListener("resize", function () {
+                map_c321e12504a1f5624433d2cc03afcfe8.invalidateSize();
+            });
 
             
 
@@ -1239,35 +1331,35 @@ function sortTable(columnIndex) {
         function geo_json_76ebea6e4e4b5a62576a8700825a269a_styler(feature) {
             switch(feature.id) {
                 case "0": 
-                    return {"color": "#168ef6", "fillColor": "#b6dcf1", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#b6dcf1", "fillOpacity": 0.34, "weight": 3};
                 case "1": 
-                    return {"color": "#168ef6", "fillColor": "#cfebdd", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#cfebdd", "fillOpacity": 0.34, "weight": 3};
                 case "2": 
-                    return {"color": "#168ef6", "fillColor": "#d1e1fb", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#d1e1fb", "fillOpacity": 0.34, "weight": 3};
                 case "3": 
-                    return {"color": "#168ef6", "fillColor": "#d0cad3", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#d0cad3", "fillOpacity": 0.34, "weight": 3};
                 case "4": 
-                    return {"color": "#168ef6", "fillColor": "#cdd0e5", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#cdd0e5", "fillOpacity": 0.34, "weight": 3};
                 case "5": 
-                    return {"color": "#168ef6", "fillColor": "#d1c9e0", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#d1c9e0", "fillOpacity": 0.34, "weight": 3};
                 case "6": 
-                    return {"color": "#168ef6", "fillColor": "#d7d7f4", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#d7d7f4", "fillOpacity": 0.34, "weight": 3};
                 case "7": 
-                    return {"color": "#168ef6", "fillColor": "#e1c8ec", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#e1c8ec", "fillOpacity": 0.34, "weight": 3};
                 case "8": 
-                    return {"color": "#168ef6", "fillColor": "#cddaed", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#cddaed", "fillOpacity": 0.34, "weight": 3};
                 case "10": 
-                    return {"color": "#168ef6", "fillColor": "#cce6e7", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#cce6e7", "fillOpacity": 0.34, "weight": 3};
                 case "11": 
-                    return {"color": "#168ef6", "fillColor": "#bbd5ef", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#bbd5ef", "fillOpacity": 0.34, "weight": 3};
                 default:
-                    return {"color": "#168ef6", "fillColor": "#dcdde7", "fillOpacity": 0.19, "weight": 3};
+                    return {"color": "#0d6b78", "fillColor": "#dcdde7", "fillOpacity": 0.34, "weight": 3};
             }
         }
         function geo_json_76ebea6e4e4b5a62576a8700825a269a_highlighter(feature) {
             switch(feature.id) {
                 default:
-                    return {"color": "#1666cc", "fillOpacity": 0.28, "weight": 5};
+                    return {"color": "#d08b2d", "fillOpacity": 0.46, "weight": 5};
             }
         }
 
@@ -1701,127 +1793,127 @@ function sortTable(columnIndex) {
         function geo_json_db1b1b955c384b62e3b3aadcc5f0531a_styler(feature) {
             switch(feature.id) {
                 case "6": 
-                    return {"color": "#23272f", "fillColor": "#bdcbce", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bdcbce", "fillOpacity": 0.58, "weight": 1.3};
                 case "7": 
-                    return {"color": "#23272f", "fillColor": "#b4b5f8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b4b5f8", "fillOpacity": 0.58, "weight": 1.3};
                 case "8": 
-                    return {"color": "#23272f", "fillColor": "#a4dfe4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a4dfe4", "fillOpacity": 0.58, "weight": 1.3};
                 case "10": 
-                    return {"color": "#23272f", "fillColor": "#c7c4f7", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c7c4f7", "fillOpacity": 0.58, "weight": 1.3};
                 case "11": 
-                    return {"color": "#23272f", "fillColor": "#d1bbea", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#d1bbea", "fillOpacity": 0.58, "weight": 1.3};
                 case "12": 
-                    return {"color": "#23272f", "fillColor": "#cad6e0", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#cad6e0", "fillOpacity": 0.58, "weight": 1.3};
                 case "13": 
-                    return {"color": "#23272f", "fillColor": "#c1cfdd", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c1cfdd", "fillOpacity": 0.58, "weight": 1.3};
                 case "14": 
-                    return {"color": "#23272f", "fillColor": "#b7e0cd", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b7e0cd", "fillOpacity": 0.58, "weight": 1.3};
                 case "15": 
-                    return {"color": "#23272f", "fillColor": "#91d6d5", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#91d6d5", "fillOpacity": 0.58, "weight": 1.3};
                 case "16": 
-                    return {"color": "#23272f", "fillColor": "#b3d7e9", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b3d7e9", "fillOpacity": 0.58, "weight": 1.3};
                 case "17": 
-                    return {"color": "#23272f", "fillColor": "#c7c4d8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c7c4d8", "fillOpacity": 0.58, "weight": 1.3};
                 case "18": 
-                    return {"color": "#23272f", "fillColor": "#b2edfb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b2edfb", "fillOpacity": 0.58, "weight": 1.3};
                 case "19": 
-                    return {"color": "#23272f", "fillColor": "#b9ccc8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b9ccc8", "fillOpacity": 0.58, "weight": 1.3};
                 case "20": 
-                    return {"color": "#23272f", "fillColor": "#9fc1f2", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#9fc1f2", "fillOpacity": 0.58, "weight": 1.3};
                 case "21": 
-                    return {"color": "#23272f", "fillColor": "#a0abf8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a0abf8", "fillOpacity": 0.58, "weight": 1.3};
                 case "22": 
-                    return {"color": "#23272f", "fillColor": "#a5b8d0", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a5b8d0", "fillOpacity": 0.58, "weight": 1.3};
                 case "23": 
-                    return {"color": "#23272f", "fillColor": "#b0ecf3", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b0ecf3", "fillOpacity": 0.58, "weight": 1.3};
                 case "24": 
-                    return {"color": "#23272f", "fillColor": "#bbc4d5", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bbc4d5", "fillOpacity": 0.58, "weight": 1.3};
                 case "25": 
-                    return {"color": "#23272f", "fillColor": "#cdb0f7", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#cdb0f7", "fillOpacity": 0.58, "weight": 1.3};
                 case "26": 
-                    return {"color": "#23272f", "fillColor": "#ccb1cb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#ccb1cb", "fillOpacity": 0.58, "weight": 1.3};
                 case "27": 
-                    return {"color": "#23272f", "fillColor": "#bbb4fe", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bbb4fe", "fillOpacity": 0.58, "weight": 1.3};
                 case "28": 
-                    return {"color": "#23272f", "fillColor": "#c2aed7", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c2aed7", "fillOpacity": 0.58, "weight": 1.3};
                 case "29": 
-                    return {"color": "#23272f", "fillColor": "#c9d0d9", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c9d0d9", "fillOpacity": 0.58, "weight": 1.3};
                 case "30": 
-                    return {"color": "#23272f", "fillColor": "#a9e4eb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a9e4eb", "fillOpacity": 0.58, "weight": 1.3};
                 case "31": 
-                    return {"color": "#23272f", "fillColor": "#a5eeea", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a5eeea", "fillOpacity": 0.58, "weight": 1.3};
                 case "32": 
-                    return {"color": "#23272f", "fillColor": "#cccce4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#cccce4", "fillOpacity": 0.58, "weight": 1.3};
                 case "33": 
-                    return {"color": "#23272f", "fillColor": "#9aeeff", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#9aeeff", "fillOpacity": 0.58, "weight": 1.3};
                 case "34": 
-                    return {"color": "#23272f", "fillColor": "#acd5f0", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#acd5f0", "fillOpacity": 0.58, "weight": 1.3};
                 case "35": 
-                    return {"color": "#23272f", "fillColor": "#c2e2e6", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c2e2e6", "fillOpacity": 0.58, "weight": 1.3};
                 case "36": 
-                    return {"color": "#23272f", "fillColor": "#a9deda", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a9deda", "fillOpacity": 0.58, "weight": 1.3};
                 case "37": 
-                    return {"color": "#23272f", "fillColor": "#bfe6de", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bfe6de", "fillOpacity": 0.58, "weight": 1.3};
                 case "38": 
-                    return {"color": "#23272f", "fillColor": "#9fead3", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#9fead3", "fillOpacity": 0.58, "weight": 1.3};
                 case "39": 
-                    return {"color": "#23272f", "fillColor": "#98ecf7", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#98ecf7", "fillOpacity": 0.58, "weight": 1.3};
                 case "41": 
-                    return {"color": "#23272f", "fillColor": "#96d5dd", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#96d5dd", "fillOpacity": 0.58, "weight": 1.3};
                 case "42": 
-                    return {"color": "#23272f", "fillColor": "#90ecfc", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#90ecfc", "fillOpacity": 0.58, "weight": 1.3};
                 case "43": 
-                    return {"color": "#23272f", "fillColor": "#c6b8cd", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c6b8cd", "fillOpacity": 0.58, "weight": 1.3};
                 case "44": 
-                    return {"color": "#23272f", "fillColor": "#aaaec8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#aaaec8", "fillOpacity": 0.58, "weight": 1.3};
                 case "45": 
-                    return {"color": "#23272f", "fillColor": "#a1adeb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a1adeb", "fillOpacity": 0.58, "weight": 1.3};
                 case "46": 
-                    return {"color": "#23272f", "fillColor": "#c0b5d5", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c0b5d5", "fillOpacity": 0.58, "weight": 1.3};
                 case "47": 
-                    return {"color": "#23272f", "fillColor": "#abeee4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#abeee4", "fillOpacity": 0.58, "weight": 1.3};
                 case "48": 
-                    return {"color": "#23272f", "fillColor": "#bbdcf4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bbdcf4", "fillOpacity": 0.58, "weight": 1.3};
                 case "49": 
-                    return {"color": "#23272f", "fillColor": "#90acfb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#90acfb", "fillOpacity": 0.58, "weight": 1.3};
                 case "50": 
-                    return {"color": "#23272f", "fillColor": "#c8d3f5", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c8d3f5", "fillOpacity": 0.58, "weight": 1.3};
                 case "51": 
-                    return {"color": "#23272f", "fillColor": "#98d9c8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#98d9c8", "fillOpacity": 0.58, "weight": 1.3};
                 case "52": 
-                    return {"color": "#23272f", "fillColor": "#cdf0d9", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#cdf0d9", "fillOpacity": 0.58, "weight": 1.3};
                 case "53": 
-                    return {"color": "#23272f", "fillColor": "#a5e0e6", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#a5e0e6", "fillOpacity": 0.58, "weight": 1.3};
                 case "54": 
-                    return {"color": "#23272f", "fillColor": "#b9bfcc", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#b9bfcc", "fillOpacity": 0.58, "weight": 1.3};
                 case "55": 
-                    return {"color": "#23272f", "fillColor": "#cbd7d4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#cbd7d4", "fillOpacity": 0.58, "weight": 1.3};
                 case "56": 
-                    return {"color": "#23272f", "fillColor": "#aeadf4", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#aeadf4", "fillOpacity": 0.58, "weight": 1.3};
                 case "57": 
-                    return {"color": "#23272f", "fillColor": "#c4c0de", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c4c0de", "fillOpacity": 0.58, "weight": 1.3};
                 case "58": 
-                    return {"color": "#23272f", "fillColor": "#8fcaf2", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#8fcaf2", "fillOpacity": 0.58, "weight": 1.3};
                 case "59": 
-                    return {"color": "#23272f", "fillColor": "#c0c2ed", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c0c2ed", "fillOpacity": 0.58, "weight": 1.3};
                 case "60": 
-                    return {"color": "#23272f", "fillColor": "#c8d1da", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c8d1da", "fillOpacity": 0.58, "weight": 1.3};
                 case "61": 
-                    return {"color": "#23272f", "fillColor": "#bcb5e8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bcb5e8", "fillOpacity": 0.58, "weight": 1.3};
                 case "62": 
-                    return {"color": "#23272f", "fillColor": "#bfbafa", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bfbafa", "fillOpacity": 0.58, "weight": 1.3};
                 case "63": 
-                    return {"color": "#23272f", "fillColor": "#d1e9eb", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#d1e9eb", "fillOpacity": 0.58, "weight": 1.3};
                 case "65": 
-                    return {"color": "#23272f", "fillColor": "#bfdfc8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#bfdfc8", "fillOpacity": 0.58, "weight": 1.3};
                 case "66": 
-                    return {"color": "#23272f", "fillColor": "#d2cade", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#d2cade", "fillOpacity": 0.58, "weight": 1.3};
                 case "67": 
-                    return {"color": "#23272f", "fillColor": "#c3c6e1", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#c3c6e1", "fillOpacity": 0.58, "weight": 1.3};
                 case "68": 
-                    return {"color": "#23272f", "fillColor": "#9bc5f7", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#9bc5f7", "fillOpacity": 0.58, "weight": 1.3};
                 default:
-                    return {"color": "#23272f", "fillColor": "#aae5e8", "fillOpacity": 0.82, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#aae5e8", "fillOpacity": 0.58, "weight": 1.3};
             }
         }
         function geo_json_db1b1b955c384b62e3b3aadcc5f0531a_highlighter(feature) {
@@ -2923,7 +3015,7 @@ function sortTable(columnIndex) {
         function geo_json_5c3f6d39be8685194ae7b2fbd78f45b9_styler(feature) {
             switch(feature.id) {
                 default:
-                    return {"color": "#23272f", "fillColor": "#2e7d32", "fillOpacity": 0.75, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#2e7d32", "fillOpacity": 0.75, "weight": 1.3};
             }
         }
         function geo_json_5c3f6d39be8685194ae7b2fbd78f45b9_highlighter(feature) {
@@ -3040,7 +3132,7 @@ function sortTable(columnIndex) {
         function geo_json_aba478604bedd05991b2150b5e882351_styler(feature) {
             switch(feature.id) {
                 default:
-                    return {"color": "#23272f", "fillColor": "#558b2f", "fillOpacity": 0.75, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#558b2f", "fillOpacity": 0.75, "weight": 1.3};
             }
         }
         function geo_json_aba478604bedd05991b2150b5e882351_highlighter(feature) {
@@ -3157,7 +3249,7 @@ function sortTable(columnIndex) {
         function geo_json_e0de63724438220ffc4c256044b5b33f_styler(feature) {
             switch(feature.id) {
                 default:
-                    return {"color": "#23272f", "fillColor": "#9e9d24", "fillOpacity": 0.75, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#9e9d24", "fillOpacity": 0.75, "weight": 1.3};
             }
         }
         function geo_json_e0de63724438220ffc4c256044b5b33f_highlighter(feature) {
@@ -3274,7 +3366,7 @@ function sortTable(columnIndex) {
         function geo_json_4e47cc8365eb24bbc948a3e48036cc98_styler(feature) {
             switch(feature.id) {
                 default:
-                    return {"color": "#23272f", "fillColor": "#f57c00", "fillOpacity": 0.75, "weight": 1.3};
+                    return {"color": "#24515b", "fillColor": "#f57c00", "fillOpacity": 0.75, "weight": 1.3};
             }
         }
         function geo_json_4e47cc8365eb24bbc948a3e48036cc98_highlighter(feature) {
@@ -3409,13 +3501,13 @@ function sortTable(columnIndex) {
         
     
             var tile_layer_3eab42c74ae7f5df212f432c804ca1f6 = L.tileLayer(
-                "Stamen Terrain",
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
   "maxZoom": 18,
   "maxNativeZoom": 18,
   "noWrap": false,
-  "attribution": "Map tiles by Stamen Design, CC BY 3.0 \u2014 Map data \u00a9 OpenStreetMap contributors",
+  "attribution": "\u00a9 OpenStreetMap contributors \u00a9 CARTO",
   "subdomains": "abc",
   "detectRetina": false,
   "tms": false,
@@ -3429,13 +3521,13 @@ function sortTable(columnIndex) {
         
     
             var tile_layer_acef30545a0a58af796411c564bf65eb = L.tileLayer(
-                "Stamen Toner",
+                "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
   "maxZoom": 18,
   "maxNativeZoom": 18,
   "noWrap": false,
-  "attribution": "Map tiles by Stamen Design, CC BY 3.0 \u2014 Map data \u00a9 OpenStreetMap contributors",
+  "attribution": "Map data \u00a9 OpenStreetMap contributors, SRTM | Map style \u00a9 OpenTopoMap",
   "subdomains": "abc",
   "detectRetina": false,
   "tms": false,
@@ -3445,7 +3537,6 @@ function sortTable(columnIndex) {
             );
         
     
-            tile_layer_acef30545a0a58af796411c564bf65eb.addTo(map_c321e12504a1f5624433d2cc03afcfe8);
         
     
             var tile_layer_f64a68e3f0925b0485771d7c07c8ebc5 = L.tileLayer(
@@ -3465,7 +3556,6 @@ function sortTable(columnIndex) {
             );
         
     
-            tile_layer_f64a68e3f0925b0485771d7c07c8ebc5.addTo(map_c321e12504a1f5624433d2cc03afcfe8);
         
     
             var tile_layer_6b08b02eb886361d852db3f7fa108077 = L.tileLayer(
@@ -3485,16 +3575,15 @@ function sortTable(columnIndex) {
             );
         
     
-            tile_layer_6b08b02eb886361d852db3f7fa108077.addTo(map_c321e12504a1f5624433d2cc03afcfe8);
         
     
             var layer_control_cbb5ce4dd842a2b0a181edde3f822945_layers = {
                 base_layers : {
                     "OpenStreetMap" : tile_layer_181d67c98f40f91d3beeb8d8ccdf5872,
-                    "Terrain" : tile_layer_3eab42c74ae7f5df212f432c804ca1f6,
-                    "B\u0026W" : tile_layer_acef30545a0a58af796411c564bf65eb,
-                    "Carto Light" : tile_layer_f64a68e3f0925b0485771d7c07c8ebc5,
-                    "Carto Dark" : tile_layer_6b08b02eb886361d852db3f7fa108077,
+                    "Atlas Farben" : tile_layer_3eab42c74ae7f5df212f432c804ca1f6,
+                    "Relief" : tile_layer_acef30545a0a58af796411c564bf65eb,
+                    "Hell" : tile_layer_f64a68e3f0925b0485771d7c07c8ebc5,
+                    "Dunkel" : tile_layer_6b08b02eb886361d852db3f7fa108077,
                 },
                 overlays :  {
                     "Regionen" : geo_json_76ebea6e4e4b5a62576a8700825a269a,
@@ -3513,7 +3602,7 @@ function sortTable(columnIndex) {
                 layer_control_cbb5ce4dd842a2b0a181edde3f822945_layers.overlays,
                 {
   "position": "topright",
-  "collapsed": false,
+  "collapsed": true,
   "autoZIndex": true,
 }
             ).addTo(map_c321e12504a1f5624433d2cc03afcfe8);
@@ -3545,8 +3634,8 @@ function sortTable(columnIndex) {
                 tile_layer_89d709b69fd3dd34af5b197854b04495,
                 {
   "position": "bottomright",
-  "width": 150,
-  "height": 150,
+  "width": 120,
+  "height": 90,
   "collapsedWidth": 25,
   "collapsedHeight": 25,
   "zoomLevelOffset": -5,
@@ -3554,7 +3643,7 @@ function sortTable(columnIndex) {
   "zoomAnimation": false,
   "toggleDisplay": true,
   "autoToggleDisplay": false,
-  "minimized": false,
+  "minimized": true,
 }
             );
             map_c321e12504a1f5624433d2cc03afcfe8.addControl(mini_map_60752669d9d3c78c2c672c87079c0f35);

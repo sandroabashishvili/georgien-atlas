@@ -47,6 +47,33 @@ a:hover {
   color: var(--accent);
 }
 
+.nav a,
+.footer-links a,
+.button {
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.nav a:hover,
+.footer-links a:hover {
+  transform: translateY(-1px);
+}
+
+.button:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(13, 107, 120, 0.16);
+  transform: translateY(-2px);
+}
+
+.button.primary:hover {
+  background: #095966;
+  color: #fff;
+}
+
 .skip-link {
   position: fixed;
   top: 10px;

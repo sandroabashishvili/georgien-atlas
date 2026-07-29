@@ -29,7 +29,7 @@
 
 .region-story {
   display: grid;
-  grid-template-columns: minmax(320px, .78fr) minmax(0, 1fr);
+  grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
   gap: 38px;
   align-items: center;
   padding: 46px 0;
@@ -51,8 +51,15 @@
 .region-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  max-height: 310px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.region-story:hover .region-image img {
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.025);
 }
 
 .region-copy span {
@@ -239,15 +246,45 @@
 }
 
 .source-rows a {
+  position: relative;
   display: grid;
   grid-column: 2;
   align-content: start;
   min-height: 118px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255, 255, 255, .72);
-  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .96), rgba(227, 240, 239, .72));
+  padding: 20px 54px 20px 20px;
   text-decoration: none;
+  box-shadow: 0 8px 20px rgba(16, 46, 58, .06);
+  overflow: hidden;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.source-rows a::after {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(13, 107, 120, .1);
+  color: var(--accent);
+  content: "↗";
+  font-size: 18px;
+  font-weight: 900;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease;
 }
 
 .source-rows article a + a {
@@ -257,6 +294,14 @@
 .source-rows a:hover {
   border-color: var(--accent);
   background: #fff;
+  box-shadow: 0 16px 34px rgba(13, 107, 120, .16);
+  transform: translateY(-4px);
+}
+
+.source-rows a:hover::after {
+  background: var(--accent);
+  color: #fff;
+  transform: translate(2px, -2px);
 }
 
 .source-rows strong {
@@ -264,6 +309,11 @@
   margin-bottom: 8px;
   color: var(--ink);
   font-size: 20px;
+  transition: color 200ms ease;
+}
+
+.source-rows a:hover strong {
+  color: var(--accent);
 }
 
 .source-rows span {
