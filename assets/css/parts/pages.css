@@ -521,3 +521,34 @@
   padding: 26px 0;
   font-size: 14px;
 }
+
+.creator-credit {
+  display: grid;
+  gap: 5px;
+  max-width: 430px;
+}
+
+.creator-credit strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.creator-credit > span {
+  color: var(--muted);
+}
+
+.creator-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.creator-links a {
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.creator-links a:hover {
+  text-decoration: underline;
+}
