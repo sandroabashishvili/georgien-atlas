@@ -158,3 +158,8 @@ regionButtons.forEach((button, index) => {
     nextButton.focus();
   });
 });
+
+const requestedRegion = new URLSearchParams(window.location.search).get("region");
+if (requestedRegion && regionData[requestedRegion]) {
+  setRegion(requestedRegion);
+}

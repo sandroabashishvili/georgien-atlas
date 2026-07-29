@@ -367,6 +367,16 @@ h3 {
   background: var(--paper);
   padding: 22px;
   box-shadow: 0 8px 22px rgba(16, 46, 58, 0.06);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.card:hover {
+  border-color: rgba(13, 107, 120, .48);
+  box-shadow: 0 16px 34px rgba(13, 107, 120, .14);
+  transform: translateY(-4px);
 }
 
 .card.feature {

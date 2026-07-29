@@ -17,10 +17,12 @@
     align-items: stretch;
     gap: 0;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    max-height: calc(100svh - 92px);
+    overflow-y: auto;
+    border-radius: 14px;
     background: var(--paper);
     box-shadow: var(--shadow);
-    padding: 8px;
+    padding: 10px;
   }
 
   .nav::before {
@@ -36,7 +38,15 @@
   }
 
   .nav a {
-    padding: 12px;
+    min-height: 50px;
+    padding: 13px 14px;
+    border-radius: 9px;
+    font-size: 17px;
+  }
+
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    background: var(--paper-strong);
   }
 
   .hero {
@@ -54,7 +64,7 @@
   }
 
   .map-hero {
-    min-height: 620px;
+    min-height: 470px;
   }
 
   .map-hero-copy {
@@ -159,7 +169,18 @@
 
   .page-hero h1,
   .map-hero-copy h1 {
-    font-size: clamp(40px, 11vw, 58px);
+    font-size: clamp(38px, 8vw, 50px);
+  }
+
+  .photo-page-hero,
+  .photo-page-hero.compact {
+    min-height: 500px;
+    padding-top: 70px;
+    padding-bottom: 48px;
+  }
+
+  .travel-rhythm article {
+    min-height: 0;
   }
 
   .narrative,
@@ -174,9 +195,6 @@
     gap: 14px;
   }
 
-  .guide-flow article span {
-    margin-bottom: 4px;
-  }
 }
 
 @media (max-width: 520px) {
@@ -185,7 +203,7 @@
   }
 
   .atlas-hero-content h1 {
-    font-size: clamp(40px, 12vw, 56px);
+    font-size: clamp(38px, 11vw, 48px);
   }
 
   .atlas-hero-content p:not(.eyebrow),
@@ -218,7 +236,7 @@
   }
 
   .region-panel h2 {
-    font-size: 46px;
+    font-size: 40px;
   }
 
   .region-explorer {
@@ -252,5 +270,14 @@
 
   .source-rows a {
     padding: 18px 50px 18px 18px;
+  }
+
+  .photo-page-hero,
+  .photo-page-hero.compact {
+    min-height: 460px;
+  }
+
+  .photo-page-hero h1 {
+    font-size: clamp(36px, 10vw, 46px);
   }
 }

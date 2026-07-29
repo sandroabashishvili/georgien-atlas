@@ -48,7 +48,7 @@ body > p a {
 #statsTable {
   width: min(430px, calc(100vw - 32px)) !important;
   left: 16px !important;
-  bottom: 16px !important;
+  bottom: 46px !important;
   border: 1px solid rgba(18, 59, 87, .22) !important;
   border-radius: 12px !important;
   box-shadow: 0 12px 28px rgba(18, 59, 87, .18) !important;
@@ -65,6 +65,18 @@ body > p a {
   max-width: min(310px, calc(100vw - 78px));
   max-height: min(70vh, 520px);
   overflow: auto;
+}
+.leaflet-tile-pane {
+  filter: saturate(1.18) contrast(1.04);
+}
+.leaflet-overlay-pane svg {
+  filter: saturate(1.32) contrast(1.05);
+}
+.leaflet-control-attribution {
+  max-width: 66vw;
+  white-space: normal;
+  font-size: 9px !important;
+  line-height: 1.2;
 }
 .region-label {
   transform: translate(-50%, -50%);
@@ -106,7 +118,7 @@ body > p a {
 }
 a[download] {
   right: 16px !important;
-  bottom: 16px !important;
+  bottom: 46px !important;
   left: auto !important;
   background: #0d5c73 !important;
   border-radius: 8px !important;
@@ -133,7 +145,7 @@ a[download] {
   #statsTable {
     width: calc(100vw - 24px) !important;
     left: 12px !important;
-    bottom: 12px !important;
+    bottom: 38px !important;
   }
   #statsBody > div:last-child {
     max-height: 46svh !important;
@@ -1667,7 +1679,6 @@ function sortTable(columnIndex) {
                 marker_c85597daa8295e554ca0cde1b5311fc5.setIcon(div_icon_8497d5c7ae864d9740ce05aed7a46c22);
             
     
-            feature_group_1cb1385f470dc92b08dc492810bd0568.addTo(map_c321e12504a1f5624433d2cc03afcfe8);
         
     
         function geo_json_7d7201f8928ef0b4f1e66085a96723ba_styler(feature) {

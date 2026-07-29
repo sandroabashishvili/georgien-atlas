@@ -173,7 +173,10 @@ a:hover {
   background: var(--paper);
   color: var(--ink);
   border-radius: 8px;
-  padding: 9px 12px;
+  min-width: 52px;
+  min-height: 46px;
+  padding: 10px 16px;
+  font-size: 16px;
   font-weight: 800;
   font-family: inherit;
   cursor: pointer;
