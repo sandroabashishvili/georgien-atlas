@@ -2,9 +2,11 @@
 
 ![Georgien Atlas – Regionen, Karte und Reiseideen](assets/img/social-card.jpg)
 
-Ein deutschsprachiger, responsiver Georgien-Atlas mit redaktionellen
-Regionenporträts, praktischen Reiseinformationen und einer interaktiven
-Datenkarte.
+Ein leichtgewichtiger, datenbasierter Web-Atlas, der redaktionelle
+Reiseinformationen mit strukturierten Regions- und Gemeindedaten in einer
+interaktiven Karte verbindet. Das Projekt zeigt, wie sich Datenvisualisierung,
+Inhaltsstruktur und responsive Frontend-Entwicklung ohne schweres Framework
+kombinieren lassen.
 
 **Live:** [sandroabashishvili.github.io/georgien-atlas](https://sandroabashishvili.github.io/georgien-atlas/)
 
