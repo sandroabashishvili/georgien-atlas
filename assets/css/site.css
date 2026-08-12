@@ -1,4 +1,5 @@
 @import url("parts/base.css");
+ url("parts/consent.css");
 @import url("parts/home.css");
 @import url("parts/map.css");
 @import url("parts/pages.css");
