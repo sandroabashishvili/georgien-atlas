@@ -1,15 +1,13 @@
 const themeStorageKey = "georgien-atlas-theme";
 const rootElement = document.documentElement;
 const themeColor = document.querySelector('meta[name="theme-color"]');
-const storedTheme = localStorage.getItem(themeStorageKey);
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+const storedTheme = sessionStorage.getItem(themeStorageKey);
 let followsSystemTheme = storedTheme !== "light" && storedTheme !== "dark";
 
-if (storedTheme === "light" || storedTheme === "dark") {
-  rootElement.dataset.theme = storedTheme;
-} else {
-  rootElement.dataset.theme = systemTheme.matches ? "dark" : "light";
-}
+rootElement.dataset.theme = followsSystemTheme
+  ? (systemTheme.matches ? "dark" : "light")
+  : storedTheme;
 
 const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");
@@ -40,7 +38,7 @@ themeButton.addEventListener("click", () => {
   const nextTheme = getActiveTheme() === "dark" ? "light" : "dark";
   followsSystemTheme = false;
   rootElement.dataset.theme = nextTheme;
-  localStorage.setItem(themeStorageKey, nextTheme);
+  sessionStorage.setItem(themeStorageKey, nextTheme);
   updateThemeControl();
 });
 
