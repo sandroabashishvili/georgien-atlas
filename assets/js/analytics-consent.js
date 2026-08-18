@@ -1,9 +1,9 @@
 (function () {
   "use strict";
 
-  const measurementId = "G-S69M2QB2HG";
+  const measurementId = "G-BMKYWEPNHB";
   const consentKey = "georgienAtlasAnalyticsConsent";
-  const productionHost = "sandroabashishvili.github.io";
+  const productionHost = "sandro-abashishvili.de";
   const scriptUrl = new URL(document.currentScript?.src || "assets/js/analytics-consent.js", location.href);
   const siteRoot = new URL("../../", scriptUrl);
   const privacyUrl = new URL("datenschutz/", siteRoot).href;
