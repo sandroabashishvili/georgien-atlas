@@ -8,7 +8,7 @@ interaktiven Karte verbindet. Das Projekt zeigt, wie sich Datenvisualisierung,
 Inhaltsstruktur und responsive Frontend-Entwicklung ohne schweres Framework
 kombinieren lassen.
 
-**Live:** [sandroabashishvili.github.io/georgien-atlas](https://sandroabashishvili.github.io/georgien-atlas/)
+**Live:** [sandro-abashishvili.de/georgien-atlas](https://sandro-abashishvili.de/georgien-atlas/)
 
 - Hell-/Dunkelmodus mit Systemeinstellung als Standard und manueller Sitzungswahl
 - vollflächige, einklappbare Mobilnavigation
@@ -92,6 +92,6 @@ schrittweise erweitert und aktualisiert werden.
 
 Sandro Abashishvili
 
-[Portfolio](https://sandroabashishvili.github.io/) ·
+[Portfolio](https://sandro-abashishvili.de/) ·
 [GitHub](https://github.com/sandroabashishvili) ·
 [LinkedIn](https://www.linkedin.com/in/aleksandre-abashishvili-03417617a/)
