@@ -112,7 +112,7 @@
   display: grid;
   grid-template-columns: minmax(300px, .78fr) minmax(0, 1fr);
   gap: 34px;
-  align-items: center;
+  align-items: start;
   border-left: 2px solid var(--accent);
   padding-left: 34px;
 }

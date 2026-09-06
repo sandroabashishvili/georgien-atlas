@@ -139,16 +139,20 @@
   }
 
   .region-list {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    padding-bottom: 4px;
     position: static;
-    scroll-snap-type: x proximity;
   }
 
   .region-chip {
+    min-width: 0;
     white-space: nowrap;
-    scroll-snap-align: start;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 14px;
   }
 
   .region-chip:hover,
