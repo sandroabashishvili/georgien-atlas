@@ -19,10 +19,6 @@
     white-space: nowrap;
   }
 
-  .theme-toggle {
-    margin-left: auto;
-  }
-
   .menu-button {
     display: inline-flex;
     align-items: center;

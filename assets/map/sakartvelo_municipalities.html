@@ -3535,13 +3535,13 @@ function sortTable(columnIndex) {
         
     
             var tile_layer_3eab42c74ae7f5df212f432c804ca1f6 = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
   "maxZoom": 18,
   "maxNativeZoom": 18,
   "noWrap": false,
-  "attribution": "\u00a9 OpenStreetMap contributors \u00a9 CARTO",
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap\u003c/a> contributors",
   "subdomains": "abc",
   "detectRetina": false,
   "tms": false,
@@ -3574,13 +3574,13 @@ function sortTable(columnIndex) {
         
     
             var tile_layer_f64a68e3f0925b0485771d7c07c8ebc5 = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
   "maxZoom": 20,
   "maxNativeZoom": 20,
   "noWrap": false,
-  "attribution": "Map tiles by CartoDB, CC BY 3.0 \u2014 Map data \u00a9 OpenStreetMap contributors",
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap\u003c/a> contributors",
   "subdomains": "abcd",
   "detectRetina": false,
   "tms": false,
@@ -3593,13 +3593,13 @@ function sortTable(columnIndex) {
         
     
             var tile_layer_6b08b02eb886361d852db3f7fa108077 = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
   "maxZoom": 20,
   "maxNativeZoom": 20,
   "noWrap": false,
-  "attribution": "Map tiles by CartoDB, CC BY 3.0 \u2014 Map data \u00a9 OpenStreetMap contributors",
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap\u003c/a> contributors",
   "subdomains": "abcd",
   "detectRetina": false,
   "tms": false,
@@ -3706,6 +3706,11 @@ function sortTable(columnIndex) {
                 if (!sameOrigin || event.data?.type !== "atlas-theme") return;
                 applyAtlasTheme(event.data.theme);
             });
+
+            // The occupation layer is intentionally rendered above municipality fills.
+            // This keeps every Tskhinvali-region feature visibly marked, including
+            // Akhalgori and Java, instead of letting later layers cover the red overlay.
+            geo_json_7d7201f8928ef0b4f1e66085a96723ba.bringToFront();
         
 </script>
 </html>

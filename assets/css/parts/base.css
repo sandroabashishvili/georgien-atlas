@@ -218,35 +218,6 @@ a:hover {
   cursor: pointer;
 }
 
-.theme-toggle {
-  display: inline-grid;
-  flex: 0 0 auto;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  margin-left: auto;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-size: 19px;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.theme-toggle:hover {
-  border-color: var(--accent);
-  box-shadow: 0 8px 20px rgba(13, 107, 120, 0.16);
-  transform: translateY(-2px) rotate(8deg);
-}
-
 .footer-links {
   display: flex;
   flex-wrap: wrap;

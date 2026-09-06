@@ -1,60 +1,36 @@
-const themeStorageKey = "georgien-atlas-theme";
 const rootElement = document.documentElement;
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-const storedTheme = sessionStorage.getItem(themeStorageKey);
-let followsSystemTheme = storedTheme !== "light" && storedTheme !== "dark";
-
-rootElement.dataset.theme = followsSystemTheme
-  ? (systemTheme.matches ? "dark" : "light")
-  : storedTheme;
+const getSystemTheme = () => (systemTheme.matches ? "dark" : "light");
+rootElement.dataset.theme = getSystemTheme();
 
 const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");
-const themeButton = document.createElement("button");
 const mapFrames = document.querySelectorAll(".map-frame iframe");
 const mapMessageOrigin = window.location.origin === "null" ? "*" : window.location.origin;
-
-themeButton.className = "theme-toggle";
-themeButton.type = "button";
 
 const getActiveTheme = () => {
   if (rootElement.dataset.theme) return rootElement.dataset.theme;
   return systemTheme.matches ? "dark" : "light";
 };
 
-const updateThemeControl = () => {
+const updateTheme = () => {
   const isDark = getActiveTheme() === "dark";
-  themeButton.textContent = isDark ? "☀" : "☾";
-  themeButton.setAttribute("aria-label", isDark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren");
-  themeButton.title = isDark ? "Heller Modus" : "Dunkler Modus";
   if (themeColor) themeColor.content = isDark ? "#0b171c" : "#f7fbfb";
   mapFrames.forEach((frame) => {
     frame.contentWindow?.postMessage({ type: "atlas-theme", theme: isDark ? "dark" : "light" }, mapMessageOrigin);
   });
 };
 
-themeButton.addEventListener("click", () => {
-  const nextTheme = getActiveTheme() === "dark" ? "light" : "dark";
-  followsSystemTheme = false;
-  rootElement.dataset.theme = nextTheme;
-  sessionStorage.setItem(themeStorageKey, nextTheme);
-  updateThemeControl();
-});
-
-if (menuButton) {
-  menuButton.before(themeButton);
-  updateThemeControl();
-}
+updateTheme();
 
 mapFrames.forEach((frame) => {
-  frame.addEventListener("load", updateThemeControl);
+  frame.addEventListener("load", updateTheme);
 });
 
 systemTheme.addEventListener("change", (event) => {
-  if (!followsSystemTheme) return;
   rootElement.dataset.theme = event.matches ? "dark" : "light";
-  updateThemeControl();
+  updateTheme();
 });
 
 if (menuButton && nav) {

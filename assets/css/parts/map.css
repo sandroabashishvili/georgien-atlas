@@ -10,6 +10,7 @@
 .map-frame iframe {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: clamp(620px, 76vh, 860px);
   border: 0;
 }
