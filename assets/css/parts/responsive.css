@@ -20,6 +20,8 @@
   }
 
   .menu-button {
+    position: relative;
+    z-index: 22;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -27,6 +29,7 @@
 
   .nav {
     position: fixed;
+    z-index: 21;
     inset: 74px 0 0;
     display: none;
     flex-direction: column;

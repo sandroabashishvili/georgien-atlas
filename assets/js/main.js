@@ -28,10 +28,17 @@ mapFrames.forEach((frame) => {
   frame.addEventListener("load", updateTheme);
 });
 
-systemTheme.addEventListener("change", (event) => {
+const handleSystemThemeChange = (event) => {
   rootElement.dataset.theme = event.matches ? "dark" : "light";
   updateTheme();
-});
+};
+
+// Older embedded mobile browsers expose the legacy MediaQueryList API only.
+if (typeof systemTheme.addEventListener === "function") {
+  systemTheme.addEventListener("change", handleSystemThemeChange);
+} else if (typeof systemTheme.addListener === "function") {
+  systemTheme.addListener(handleSystemThemeChange);
+}
 
 if (menuButton && nav) {
   const closeMenu = () => {
@@ -40,7 +47,8 @@ if (menuButton && nav) {
     menuButton.setAttribute("aria-expanded", "false");
   };
 
-  menuButton.addEventListener("click", () => {
+  menuButton.addEventListener("click", (event) => {
+    event.preventDefault();
     const isOpen = nav.classList.toggle("is-open");
     document.body.classList.toggle("menu-open", isOpen);
     menuButton.setAttribute("aria-expanded", String(isOpen));
