@@ -29,7 +29,7 @@
 
   .nav {
     position: fixed;
-    z-index: 21;
+    z-index: 1001 !important;
     inset: 74px 0 0;
     display: none;
     flex-direction: column;
@@ -46,7 +46,9 @@
   }
 
   .nav.is-open {
-    display: flex;
+    display: flex !important;
+    visibility: visible;
+    opacity: 1;
   }
 
   .nav a {
