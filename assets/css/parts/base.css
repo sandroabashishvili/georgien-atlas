@@ -129,6 +129,7 @@ a:hover {
   top: 0;
   z-index: 1000;
   isolation: isolate;
+  overflow: visible;
   border-bottom: 1px solid rgba(200, 218, 221, 0.9);
   background: rgba(247, 251, 251, 0.96);
   backdrop-filter: blur(10px);

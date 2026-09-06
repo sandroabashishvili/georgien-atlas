@@ -28,13 +28,14 @@
   }
 
   .nav {
-    position: fixed !important;
-    top: 74px !important;
+    position: absolute !important;
+    top: 100% !important;
     right: 0 !important;
-    bottom: 0 !important;
+    bottom: auto !important;
     left: 0 !important;
     z-index: 2147483647 !important;
-    height: calc(100svh - 74px) !important;
+    height: auto !important;
+    max-height: calc(100svh - 86px) !important;
     inset: 74px 0 0;
     display: none;
     flex-direction: column;
