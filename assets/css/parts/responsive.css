@@ -1,4 +1,15 @@
 @media (max-width: 860px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  body {
+    padding-top: 74px;
+  }
+
   .header-inner,
   .main,
   .footer-inner {
