@@ -10,7 +10,7 @@ kombinieren lassen.
 
 **Live:** [sandro-abashishvili.de/georgien-atlas](https://sandro-abashishvili.de/georgien-atlas/)
 
-- Hell-/Dunkelmodus mit Systemeinstellung als Standard und manueller Sitzungswahl
+- automatischer Hell-/Dunkelmodus nach Systemeinstellung
 - vollflächige, einklappbare Mobilnavigation
 
 ## Was das Projekt bietet
@@ -21,7 +21,7 @@ kombinieren lassen.
 - FAQ für die erste Reiseplanung
 - kuratierte Links zu offiziellen und etablierten Quellen
 - responsives Layout sowie Tastatur- und Screenreader-freundliche Navigation
-- automatischer heller/dunkler Darstellungsmodus mit manueller Auswahl pro Browsersitzung
+- automatischer heller/dunkler Darstellungsmodus nach Browser-Systemeinstellung
 - SEO-Grundlagen mit Canonicals, Open Graph, strukturierten Daten, Sitemap und
   `robots.txt`
 
